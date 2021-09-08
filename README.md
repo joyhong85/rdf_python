@@ -6,4 +6,7 @@
 
 ## [생성한 RDF 파일 로딩 및 탐색/SPARQL](https://github.com/joyhong85/rdf_python/blob/main/02.QueryToGraph_SPARQL.ipynb)
  - Graph에 데이터를 탐아 탐색과 기본적인 SPARQL을 사용한다.
- - 
+
+## [Fuseki로 SPARQL Endpoint 구성](https://github.com/joyhong85/rdf_python/blob/main/03.Fuseki-SPARQL_Endpoint_just_20_minutes.pdf)
+ - SPARQL Endpoint를 간단하게 구성해 본다.
+ - 데이터를 로딩하여 질의를 하기 위해 사용한다.
