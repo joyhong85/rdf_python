@@ -3,6 +3,7 @@
 
 ## [트리플 생성하기](https://github.com/joyhong85/rdf_python/blob/main/01.TripleCreation.ipynb)
  - RDFLib 를 활용하여 CSV 형태의 데이터를 RDF로 변환한다.
+ ![트리플 생성하기](https://github.com/joyhong85/rdf_python/blob/main/images/01.png)
 
 ## [생성한 RDF 파일 로딩 및 탐색/SPARQL](https://github.com/joyhong85/rdf_python/blob/main/02.QueryToGraph_SPARQL.ipynb)
  - Graph에 데이터를 탐아 탐색과 기본적인 SPARQL을 사용한다.
@@ -12,7 +13,7 @@
  - 데이터를 로딩하여 질의를 하기 위해 사용한다.
  ![Fuseki image](https://github.com/joyhong85/rdf_python/blob/main/images/03.png)
  
-## SPARQLWrapper를 이용하여 SPARQL Endpoint에 질의
+## [SPARQLWrapper를 이용하여 SPARQL Endpoint에 질의](https://github.com/joyhong85/rdf_python/blob/main/04.QueryToSPARQLEndpoint.ipynb)
  - 이전 과정에서 구성한 SPARQL Endpoint에 질의를 한다.
  - SPARQLWrapper를 사용한다.
  ![SPARQL Endpoint 사용](https://github.com/joyhong85/rdf_python/blob/main/images/04.png)
