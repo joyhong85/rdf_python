@@ -10,3 +10,9 @@
 ## [Fuseki로 SPARQL Endpoint 구성](https://github.com/joyhong85/rdf_python/blob/main/03.Fuseki-SPARQL_Endpoint_just_20_minutes.pdf)
  - SPARQL Endpoint를 간단하게 구성해 본다.
  - 데이터를 로딩하여 질의를 하기 위해 사용한다.
+ ![Fuseki image](https://github.com/joyhong85/rdf_python/blob/main/images/03.png)
+ 
+## SPARQLWrapper를 이용하여 SPARQL Endpoint에 질의
+ - 이전 과정에서 구성한 SPARQL Endpoint에 질의를 한다.
+ - SPARQLWrapper를 사용한다.
+ ![SPARQL Endpoint 사용](https://github.com/joyhong85/rdf_python/blob/main/images/04.png)
