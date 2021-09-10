@@ -17,3 +17,7 @@
  - 이전 과정에서 구성한 SPARQL Endpoint에 질의를 한다.
  - SPARQLWrapper를 사용한다.
  ![SPARQL Endpoint 사용](https://github.com/joyhong85/rdf_python/blob/main/images/04.png)
+ 
+## [Graph Visualization] (https://github.com/joyhong85/rdf_python/blob/main/05.GraphVisualization.ipynb)
+ - graph-notebook 을 활용하여 SPARQL 질의 결과를 그래프로 표현한다.
+ ![graph-notebook[(https://github.com/joyhong85/rdf_python/blob/main/images/05.png)
