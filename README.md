@@ -18,6 +18,6 @@
  - SPARQLWrapper를 사용한다.
  ![SPARQL Endpoint 사용](https://github.com/joyhong85/rdf_python/blob/main/images/04.png)
  
-## [Graph Visualization] (https://github.com/joyhong85/rdf_python/blob/main/05.GraphVisualization.ipynb)
+## [Graph Visualization](https://github.com/joyhong85/rdf_python/blob/main/05.GraphVisualization.ipynb)
  - graph-notebook 을 활용하여 SPARQL 질의 결과를 그래프로 표현한다.
- ![graph-notebook[(https://github.com/joyhong85/rdf_python/blob/main/images/05.png)
+ ![graph-notebook](https://github.com/joyhong85/rdf_python/blob/main/images/05.png)
