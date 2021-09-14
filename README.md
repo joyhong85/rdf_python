@@ -31,4 +31,4 @@
  ![JoyVis](https://github.com/joyhong85/rdf_python/blob/main/images/joyVis.png)
   
   ### HTML
-  [yes](https://github.com/joyhong85/rdf_python/blob/main/html/default1.html)
+  [결과 샘플 페이지 보기](https://joyhong85.github.io/)
