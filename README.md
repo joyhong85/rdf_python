@@ -29,3 +29,6 @@
 ## [Ontology Graph Visualization](https://github.com/joyhong85/rdf_python/blob/main/JoyVis.ipynb)
  - SPARQL Endpoint 연동 또는 로컬 파일을 입력하여 그래프로 표현하는 최종 코드
  ![JoyVis](https://github.com/joyhong85/rdf_python/blob/main/images/joyVis.png)
+  
+  ### HTML
+  [yes](https://github.com/joyhong85/rdf_python/blob/main/html/default1.html)
