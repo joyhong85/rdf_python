@@ -1,0 +1,123 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 800px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+        #config {
+            float: left;
+            width: 400px;
+            height: 600px;
+        }
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<div id = "config"></div>
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"group": 1, "id": "http://joyhong.tistory.com/resource/h_1", "label": "\uac00\ud1a8\ub9ad\ub300\ud559\uad50\uc778\ucc9c\uc131\ubaa8\ubcd1\uc6d0", "shape": "dot", "title": "http://joyhong.tistory.com/resource/h_1\u003cbr\u003elabel:\uac00\ud1a8\ub9ad\ub300\ud559\uad50\uc778\ucc9c\uc131\ubaa8\ubcd1\uc6d0\u003cbr\u003eopenedDate:1981-08-06\u003cbr\u003etotalNumberOfDoctor:324\u003cbr\u003eidentifier:JDQ4MTYyMiM1MSMkMSMkMCMkODkkMzgxMzUxIzExIyQxIyQzIyQ3OSQyNjE4MzIjNDEjJDEjJDgjJDgz\u003cbr\u003etelephone:032-1544-9004"}, {"group": 2, "id": "http://schema.org/Hospital", "label": "Hospital", "shape": "dot", "title": "http://schema.org/Hospital"}, {"group": 3, "id": "http://joyhong.tistory.com/resource/cat_1", "label": "\uc0c1\uae09\uc885\ud569", "shape": "dot", "title": "http://joyhong.tistory.com/resource/cat_1\u003cbr\u003elabel:\uc0c1\uae09\uc885\ud569\u003cbr\u003eidentifier:1\u003cbr\u003eprefLabel:\uc0c1\uae09\uc885\ud569"}, {"group": 3, "id": "http://joyhong.tistory.com/resource/rg_220000", "label": "\uc778\ucc9c", "shape": "dot", "title": "http://joyhong.tistory.com/resource/rg_220000\u003cbr\u003elabel:\uc778\ucc9c\u003cbr\u003eidentifier:220000\u003cbr\u003eprefLabel:\uc778\ucc9c"}, {"group": 3, "id": "http://joyhong.tistory.com/resource/rg_220003", "label": "\uc778\ucc9c\ubd80\ud3c9\uad6c", "shape": "dot", "title": "http://joyhong.tistory.com/resource/rg_220003\u003cbr\u003elabel:\uc778\ucc9c\ubd80\ud3c9\uad6c\u003cbr\u003eidentifier:220003\u003cbr\u003eprefLabel:\uc778\ucc9c\ubd80\ud3c9\uad6c"}, {"group": 2, "id": "http://joyhong.tistory.com/resource/geo_h1", "label": "geo_h1", "shape": "dot", "title": "http://joyhong.tistory.com/resource/geo_h1\u003cbr\u003eaddress:\uc778\ucc9c\uad11\uc5ed\uc2dc \ubd80\ud3c9\uad6c \ub3d9\uc218\ub85c 56 (\ubd80\ud3c9\ub3d9)\u003cbr\u003elatitude:37.4848309\u003cbr\u003elongitude:126.7248987\u003cbr\u003epostalCode:21431"}, {"group": 2, "id": "http://www.cmcism.or.kr/", "label": "http://www.cmcism.or.kr/", "shape": "dot", "title": "http://www.cmcism.or.kr/"}, {"group": 2, "id": "http://www.hira.or.kr/re/diag/getDiagAmtInfo.do?ykiho=JDQ4MTYyMiM1MSMkMSMkMCMkODkkMzgxMzUxIzExIyQxIyQzIyQ3OSQyNjE4MzIjNDEjJDEjJDgjJDgz", "label": "getDiagAmtInfo.do?yk", "shape": "dot", "title": "http://www.hira.or.kr/re/diag/getDiagAmtInfo.do?ykiho=JDQ4MTYyMiM1MSMkMSMkMCMkODkkMzgxMzUxIzExIyQxIyQzIyQ3OSQyNjE4MzIjNDEjJDEjJDgjJDgz"}, {"group": 2, "id": "http://www.w3.org/2004/02/skos/core#Concept", "label": "Concept", "shape": "dot", "title": "http://www.w3.org/2004/02/skos/core#Concept"}, {"group": 3, "id": "http://joyhong.tistory.com/resource/rg_220007", "label": "\uc778\ucc9c\uc5f0\uc218\uad6c", "shape": "dot", "title": "http://joyhong.tistory.com/resource/rg_220007"}, {"group": 3, "id": "http://joyhong.tistory.com/resource/rg_220001", "label": "\uc778\ucc9c\ubbf8\ucd94\ud640\uad6c", "shape": "dot", "title": "http://joyhong.tistory.com/resource/rg_220001"}, {"group": 3, "id": "http://joyhong.tistory.com/resource/rg_220002", "label": "\uc778\ucc9c\ub3d9\uad6c", "shape": "dot", "title": "http://joyhong.tistory.com/resource/rg_220002"}, {"group": 3, "id": "http://joyhong.tistory.com/resource/rg_220005", "label": "\uc778\ucc9c\uc11c\uad6c", "shape": "dot", "title": "http://joyhong.tistory.com/resource/rg_220005"}, {"group": 3, "id": "http://joyhong.tistory.com/resource/rg_220008", "label": "\uc778\ucc9c\uacc4\uc591\uad6c", "shape": "dot", "title": "http://joyhong.tistory.com/resource/rg_220008"}, {"group": 3, "id": "http://joyhong.tistory.com/resource/rg_220006", "label": "\uc778\ucc9c\ub0a8\ub3d9\uad6c", "shape": "dot", "title": "http://joyhong.tistory.com/resource/rg_220006"}, {"group": 3, "id": "http://joyhong.tistory.com/resource/rg_220100", "label": "\uc778\ucc9c\uac15\ud654\uad70", "shape": "dot", "title": "http://joyhong.tistory.com/resource/rg_220100"}, {"group": 3, "id": "http://joyhong.tistory.com/resource/rg_220004", "label": "\uc778\ucc9c\uc911\uad6c", "shape": "dot", "title": "http://joyhong.tistory.com/resource/rg_220004"}, {"group": 3, "id": "http://joyhong.tistory.com/resource/rg_220200", "label": "\uc778\ucc9c\uc639\uc9c4\uad70", "shape": "dot", "title": "http://joyhong.tistory.com/resource/rg_220200"}, {"group": 1, "id": "http://joyhong.tistory.com/resource/h_10", "label": "\uace0\ub824\ub300\ud559\uad50\uc758\uacfc\ub300\ud559\ubd80\uc18d\uc548\uc0b0\ubcd1\uc6d0", "shape": "dot", "title": "http://joyhong.tistory.com/resource/h_10\u003cbr\u003elabel:\uace0\ub824\ub300\ud559\uad50\uc758\uacfc\ub300\ud559\ubd80\uc18d\uc548\uc0b0\ubcd1\uc6d0\u003cbr\u003eopenedDate:1986-01-01\u003cbr\u003etotalNumberOfDoctor:378\u003cbr\u003eidentifier:JDQ4MTYyMiM1MSMkMSMkMCMkODkkMzgxMzUxIzExIyQxIyQzIyQ5OSQzNjEwMDIjNTEjJDEjJDIjJDgz\u003cbr\u003etelephone:031-412-5653"}, {"group": 3, "id": "http://joyhong.tistory.com/resource/rg_310000", "label": "\uacbd\uae30", "shape": "dot", "title": "http://joyhong.tistory.com/resource/rg_310000"}, {"group": 3, "id": "http://joyhong.tistory.com/resource/rg_311101", "label": "\uc548\uc0b0\ub2e8\uc6d0\uad6c", "shape": "dot", "title": "http://joyhong.tistory.com/resource/rg_311101"}, {"group": 2, "id": "http://joyhong.tistory.com/resource/geo_h10", "label": "geo_h10", "shape": "dot", "title": "http://joyhong.tistory.com/resource/geo_h10"}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "black", "from": "http://joyhong.tistory.com/resource/h_1", "label": "type", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "http://schema.org/Hospital", "width": 4}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/h_1", "label": "subject", "title": "http://purl.org/dc/terms/subject", "to": "http://joyhong.tistory.com/resource/cat_1"}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/h_1", "label": "subject", "title": "http://purl.org/dc/terms/subject", "to": "http://joyhong.tistory.com/resource/rg_220000"}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/h_1", "label": "subject", "title": "http://purl.org/dc/terms/subject", "to": "http://joyhong.tistory.com/resource/rg_220003"}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/h_1", "label": "geo", "title": "http://schema.org/geo", "to": "http://joyhong.tistory.com/resource/geo_h1"}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/h_1", "label": "homepage", "title": "http://xmlns.com/foaf/0.1/homepage", "to": "http://www.cmcism.or.kr/"}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/h_1", "label": "page", "title": "http://xmlns.com/foaf/0.1/page", "to": "http://www.hira.or.kr/re/diag/getDiagAmtInfo.do?ykiho=JDQ4MTYyMiM1MSMkMSMkMCMkODkkMzgxMzUxIzExIyQxIyQzIyQ3OSQyNjE4MzIjNDEjJDEjJDgjJDgz"}, {"arrows": "to", "color": "black", "from": "http://joyhong.tistory.com/resource/cat_1", "label": "type", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "http://www.w3.org/2004/02/skos/core#Concept", "width": 4}, {"arrows": "to", "color": "black", "from": "http://joyhong.tistory.com/resource/rg_220000", "label": "type", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "http://www.w3.org/2004/02/skos/core#Concept", "width": 4}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/rg_220000", "label": "narrower", "title": "http://www.w3.org/2004/02/skos/core#narrower", "to": "http://joyhong.tistory.com/resource/rg_220003"}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/rg_220000", "label": "narrower", "title": "http://www.w3.org/2004/02/skos/core#narrower", "to": "http://joyhong.tistory.com/resource/rg_220007"}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/rg_220000", "label": "narrower", "title": "http://www.w3.org/2004/02/skos/core#narrower", "to": "http://joyhong.tistory.com/resource/rg_220001"}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/rg_220000", "label": "narrower", "title": "http://www.w3.org/2004/02/skos/core#narrower", "to": "http://joyhong.tistory.com/resource/rg_220002"}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/rg_220000", "label": "narrower", "title": "http://www.w3.org/2004/02/skos/core#narrower", "to": "http://joyhong.tistory.com/resource/rg_220005"}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/rg_220000", "label": "narrower", "title": "http://www.w3.org/2004/02/skos/core#narrower", "to": "http://joyhong.tistory.com/resource/rg_220008"}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/rg_220000", "label": "narrower", "title": "http://www.w3.org/2004/02/skos/core#narrower", "to": "http://joyhong.tistory.com/resource/rg_220006"}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/rg_220000", "label": "narrower", "title": "http://www.w3.org/2004/02/skos/core#narrower", "to": "http://joyhong.tistory.com/resource/rg_220100"}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/rg_220000", "label": "narrower", "title": "http://www.w3.org/2004/02/skos/core#narrower", "to": "http://joyhong.tistory.com/resource/rg_220004"}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/rg_220000", "label": "narrower", "title": "http://www.w3.org/2004/02/skos/core#narrower", "to": "http://joyhong.tistory.com/resource/rg_220200"}, {"arrows": "to", "color": "black", "from": "http://joyhong.tistory.com/resource/rg_220003", "label": "type", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "http://www.w3.org/2004/02/skos/core#Concept", "width": 4}, {"arrows": "to", "color": "black", "from": "http://joyhong.tistory.com/resource/h_10", "label": "type", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "http://schema.org/Hospital", "width": 4}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/h_10", "label": "subject", "title": "http://purl.org/dc/terms/subject", "to": "http://joyhong.tistory.com/resource/cat_1"}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/h_10", "label": "subject", "title": "http://purl.org/dc/terms/subject", "to": "http://joyhong.tistory.com/resource/rg_310000"}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/h_10", "label": "subject", "title": "http://purl.org/dc/terms/subject", "to": "http://joyhong.tistory.com/resource/rg_311101"}, {"arrows": "to", "from": "http://joyhong.tistory.com/resource/h_10", "label": "geo", "title": "http://schema.org/geo", "to": "http://joyhong.tistory.com/resource/geo_h10"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": true,
+        "filter": [
+            "physics"
+        ]
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+        // if this network requires displaying the configure window,
+        // put it in its div
+        options.configure["container"] = document.getElementById("config");
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
