@@ -25,3 +25,7 @@
 ## [Graph Visualizaion](https://github.com/joyhong85/rdf_python/blob/main/06.GraphVisualization2_pyvis.ipynb)
  - pyvis 를 활용하여 SPARQL 질의 결과를 그래프로 표현한다.
  ![graph-notebook](https://github.com/joyhong85/rdf_python/blob/main/images/06.png)
+
+## [Ontology Graph Visualization](https://github.com/joyhong85/rdf_python/blob/main/JoyVis.ipynb)
+ - SPARQL Endpoint 연동 또는 로컬 파일을 입력하여 그래프로 표현하는 최종 코드
+ ![JoyVis](https://github.com/joyhong85/rdf_python/blob/main/images/JoyVis.png)
