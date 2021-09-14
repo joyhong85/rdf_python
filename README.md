@@ -31,4 +31,4 @@
  ![JoyVis](https://github.com/joyhong85/rdf_python/blob/main/images/joyVis.png)
   
   ### HTML
-  [yes](https://github.com/joyhong85/rdf_python/blob/main/html/default1.html)
+  [yes](https://rawgit.com/joyhong85/rdf_python/main/html/default1.html)
